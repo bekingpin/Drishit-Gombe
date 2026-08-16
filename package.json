@@ -1,0 +1,72 @@
+{
+  "name": "drishti-gombe",
+"displayName": "Drishti Gombe",
+"description": "Playful protective charms for your VS Code workspace.",
+  "version": "0.0.1",
+  "publisher": "beAftab",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "activationEvents": [
+    "onCommand:nimbuMirchiCharm.chooseCharm",
+    "onCommand:nimbuMirchiCharm.showCharm",
+    "onCommand:nimbuMirchiCharm.hideCharm",
+    "onView:nimbuMirchiCharm.view"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "nimbuMirchiCharm.chooseCharm",
+        "title": "Nimbu Mirchi Charm: Choose Charm"
+      },
+      {
+        "command": "nimbuMirchiCharm.showCharm",
+        "title": "Nimbu Mirchi Charm: Hang Charm"
+      },
+      {
+        "command": "nimbuMirchiCharm.hideCharm",
+        "title": "Nimbu Mirchi Charm: Hide Charm"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "nimbuMirchiCharm",
+          "title": "Nimbu Mirchi",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "nimbuMirchiCharm": [
+        {
+          "type": "webview",
+          "id": "nimbuMirchiCharm.view",
+          "name": "Protective Charm"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Nimbu Mirchi Charm",
+      "properties": {
+        "nimbuMirchiCharm.selectedCharm": {
+          "type": "string",
+          "enum": [
+            "demon",
+            "nimbuMirchi",
+            "lady"
+          ],
+          "default": "nimbuMirchi"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^3.2.1"
+  }
+}
